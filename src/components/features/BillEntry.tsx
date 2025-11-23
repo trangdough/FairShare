@@ -112,15 +112,17 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
     }
 
     return (
-        <Card className={editingBill ? "ring-2 ring-violet-500/50" : ""}>
+        <Card className={editingBill ? "ring-2 ring-purple-500/50 shadow-lg shadow-purple-500/20" : ""}>
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
-                    <Receipt className="w-5 h-5 text-violet-400" />
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500">
+                        <Receipt className="w-5 h-5 text-white" />
+                    </div>
                     <h2 className="text-xl font-semibold text-white">
                         {editingBill ? "Edit Bill" : "Add New Bill"}
                     </h2>
                     {editingBill && (
-                        <span className="text-xs px-2 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                        <span className="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
                             Editing
                         </span>
                     )}
@@ -146,7 +148,7 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                 {/* Main Bill Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-300">Description</label>
+                        <label className="text-sm font-medium text-gray-200">Description</label>
                         <Input
                             placeholder="e.g. Walmart Grocery"
                             value={description}
@@ -155,7 +157,7 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-300">Total Amount ($)</label>
+                        <label className="text-sm font-medium text-gray-200">Total Amount ($)</label>
                         <Input
                             type="number"
                             step="0.01"
@@ -166,9 +168,9 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                         />
                     </div>
                     <div className="space-y-2 md:col-span-2">
-                        <label className="text-sm font-medium text-slate-300">Who paid?</label>
+                        <label className="text-sm font-medium text-gray-200">Who paid?</label>
                         <select
-                            className="w-full h-10 rounded-lg border border-slate-700 bg-slate-900/50 px-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                            className="w-full h-12 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-4 text-sm text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
                             value={payerId}
                             onChange={(e) => setPayerId(e.target.value)}
                             required
@@ -182,7 +184,7 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                         </select>
                     </div>
                     <div className="space-y-2 md:col-span-2">
-                        <label className="text-sm font-medium text-slate-300">Date</label>
+                        <label className="text-sm font-medium text-gray-200">Date</label>
                         <Input
                             type="date"
                             value={date}
@@ -193,19 +195,19 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                 </div>
 
                 {/* Itemized Splitting Section */}
-                <div className="border-t border-slate-700/50 pt-4">
+                <div className="border-t border-white/10 pt-4">
                     <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-sm font-medium text-slate-300 flex items-center gap-2">
+                        <h3 className="text-sm font-medium text-gray-200 flex items-center gap-2">
                             <ShoppingBag className="w-4 h-4" />
                             Individual Items (Optional)
                         </h3>
-                        <span className="text-xs text-slate-400">
-                            Shared Pool: <span className="text-violet-400 font-bold">${sharedAmount.toFixed(2)}</span>
+                        <span className="text-xs text-gray-400">
+                            Shared Pool: <span className="text-purple-400 font-bold">${sharedAmount.toFixed(2)}</span>
                         </span>
                     </div>
 
                     {/* Add Item Form */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4 bg-slate-800/30 p-3 rounded-lg border border-slate-700/30">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4 bg-white/5 p-3 rounded-lg border border-white/10">
                         <Input
                             placeholder="Item name"
                             value={itemName}
@@ -222,7 +224,7 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                         />
                         <div className="flex gap-2">
                             <select
-                                className="flex-1 h-9 rounded-lg border border-slate-700 bg-slate-900/50 px-2 text-xs text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                                className="flex-1 h-9 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-2 text-xs text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
                                 value={itemOwnerId}
                                 onChange={(e) => setItemOwnerId(e.target.value)}
                             >
@@ -248,19 +250,19 @@ export function BillEntry({ participants, onAddBill, onUpdateBill, editingBill, 
                     {items.length > 0 && (
                         <div className="space-y-2 mb-4">
                             {items.map((item) => (
-                                <div key={item.id} className="flex items-center justify-between bg-slate-800/20 px-3 py-2 rounded text-sm">
+                                <div key={item.id} className="flex items-center justify-between bg-white/5 px-3 py-2 rounded text-sm border border-white/5">
                                     <div className="flex items-center gap-2">
-                                        <span className="text-slate-300">{item.name}</span>
-                                        <span className="text-slate-500 text-xs">
+                                        <span className="text-gray-200">{item.name}</span>
+                                        <span className="text-gray-400 text-xs">
                                             ({participants.find(p => p.id === item.ownerId)?.name})
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <span className="font-medium text-slate-200">${item.amount.toFixed(2)}</span>
+                                        <span className="font-medium text-white">${item.amount.toFixed(2)}</span>
                                         <button
                                             type="button"
                                             onClick={() => handleRemoveItem(item.id)}
-                                            className="text-slate-500 hover:text-red-400"
+                                            className="text-gray-400 hover:text-red-400"
                                         >
                                             <Trash2 className="w-3.5 h-3.5" />
                                         </button>

@@ -99,16 +99,16 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen px-4 md:px-6 py-8 md:py-12 max-w-xl mx-auto space-y-12 pb-20">
+    <main className="min-h-screen px-4 md:px-6 py-8 md:py-12 max-w-[520px] mx-auto space-y-12 pb-20">
       {/* Header */}
-      <header className="text-center space-y-3 pt-16 pb-4">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-full mb-2">
-          <Wallet className="w-7 h-7 text-blue-600" />
+      <header className="text-center space-y-4 pt-16 pb-4">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl mb-3 shadow-lg shadow-purple-500/30">
+          <Wallet className="w-8 h-8 text-white" />
         </div>
-        <h1 className="text-4xl md:text-5xl font-semibold text-gray-900">
+        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
           Fair Share
         </h1>
-        <p className="text-gray-600 text-base max-w-md mx-auto">
+        <p className="text-gray-400 text-base max-w-md mx-auto">
           Split bills fairly with friends. Track shared expenses and individual items effortlessly.
         </p>
       </header>
@@ -139,8 +139,8 @@ export default function Home() {
 
         <section>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-900">Recent Bills</h2>
-            <span className="text-sm text-gray-500">
+            <h2 className="text-xl font-semibold text-white">Recent Bills</h2>
+            <span className="text-sm text-gray-400">
               {bills.length} {bills.length === 1 ? "bill" : "bills"}
             </span>
           </div>

@@ -9,7 +9,7 @@ export function Card({ className, children, ...props }: CardProps) {
     return (
         <div
             className={cn(
-                "card-elevated rounded-2xl p-6 card-elevated-hover",
+                "card-elevated rounded-3xl p-6 card-elevated-hover",
                 className
             )}
             {...props}

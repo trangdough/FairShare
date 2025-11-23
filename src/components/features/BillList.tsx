@@ -27,15 +27,15 @@ export function BillList({ bills, participants, onRemoveBill, onEditBill }: Bill
 
                 return (
                     <Card key={bill.id} className="relative overflow-hidden group">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-violet-500 to-indigo-500" />
+                        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500" />
 
                         <div className="flex justify-between items-start mb-4 pl-2">
                             <div>
                                 <h3 className="text-lg font-semibold text-white">{bill.description}</h3>
-                                <div className="flex items-center gap-4 text-sm text-slate-400 mt-1">
+                                <div className="flex items-center gap-4 text-sm text-gray-400 mt-1">
                                     <span className="flex items-center gap-1">
                                         <User className="w-3 h-3" />
-                                        Paid by <span className="text-violet-400 font-medium">{payer?.name}</span>
+                                        Paid by <span className="text-purple-400 font-medium">{payer?.name}</span>
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <Calendar className="w-3 h-3" />
@@ -50,13 +50,13 @@ export function BillList({ bills, participants, onRemoveBill, onEditBill }: Bill
                                 <div className="flex gap-2 mt-1 opacity-0 group-hover:opacity-100 transition-opacity justify-end">
                                     <button
                                         onClick={() => onEditBill(bill)}
-                                        className="text-slate-500 hover:text-violet-400 text-sm flex items-center gap-1"
+                                        className="text-gray-400 hover:text-purple-400 text-sm flex items-center gap-1 transition-colors"
                                     >
                                         <Edit2 className="w-3 h-3" /> Edit
                                     </button>
                                     <button
                                         onClick={() => onRemoveBill(bill.id)}
-                                        className="text-slate-500 hover:text-red-400 text-sm flex items-center gap-1"
+                                        className="text-gray-400 hover:text-red-400 text-sm flex items-center gap-1 transition-colors"
                                     >
                                         <Trash2 className="w-3 h-3" /> Remove
                                     </button>
@@ -65,7 +65,7 @@ export function BillList({ bills, participants, onRemoveBill, onEditBill }: Bill
                         </div>
 
                         {/* Breakdown */}
-                        <div className="bg-slate-900/50 rounded-lg p-4 text-sm border border-slate-800 space-y-3">
+                        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 text-sm border border-white/10 space-y-3">
                             {/* Individual Items Section - Grouped by Person */}
                             {bill.items.length > 0 && (
                                 <div className="pb-3 border-b border-slate-800">

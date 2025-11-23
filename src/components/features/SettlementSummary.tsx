@@ -76,9 +76,11 @@ export function SettlementSummary({ bills, participants }: SettlementSummaryProp
     if (bills.length === 0) return null;
 
     return (
-        <Card className="bg-gradient-to-br from-slate-900 to-slate-800 border-violet-500/20">
+        <Card className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-purple-500/30">
             <div className="flex items-center gap-2 mb-6">
-                <CheckCircle2 className="w-6 h-6 text-green-400" />
+                <div className="p-2 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500">
+                    <CheckCircle2 className="w-5 h-5 text-white" />
+                </div>
                 <h2 className="text-xl font-bold text-white">Settlement Plan</h2>
             </div>
 
@@ -95,11 +97,11 @@ export function SettlementSummary({ bills, participants }: SettlementSummaryProp
                         return (
                             <div
                                 key={idx}
-                                className="flex items-center justify-between bg-slate-950/50 p-4 rounded-xl border border-slate-800"
+                                className="flex items-center justify-between bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 hover:border-purple-500/30 transition-colors"
                             >
                                 <div className="flex items-center gap-3">
                                     <span className="font-semibold text-red-400">{fromName}</span>
-                                    <span className="text-slate-500 text-sm">pays</span>
+                                    <span className="text-gray-400 text-sm">pays</span>
                                     <span className="font-semibold text-green-400">{toName}</span>
                                 </div>
                                 <div className="text-xl font-bold text-white">
