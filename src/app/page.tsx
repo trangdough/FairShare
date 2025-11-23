@@ -101,7 +101,7 @@ export default function Home() {
   return (
     <main className="min-h-screen px-4 md:px-6 py-8 md:py-12 max-w-xl mx-auto space-y-12 pb-20">
       {/* Header */}
-      <header className="text-center space-y-3 pt-8 pb-4">
+      <header className="text-center space-y-3 pt-16 pb-4">
         <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-full mb-2">
           <Wallet className="w-7 h-7 text-blue-600" />
         </div>
