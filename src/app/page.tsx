@@ -6,6 +6,7 @@ import { ParticipantList } from "@/components/features/ParticipantList";
 import { BillEntry } from "@/components/features/BillEntry";
 import { BillList } from "@/components/features/BillList";
 import { SettlementSummary } from "@/components/features/SettlementSummary";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Wallet } from "lucide-react";
 
 export default function Home() {
@@ -101,11 +102,14 @@ export default function Home() {
   return (
     <main className="min-h-screen px-4 md:px-6 py-8 md:py-12 max-w-[520px] mx-auto space-y-12 pb-20">
       {/* Header */}
-      <header className="text-center space-y-4 pt-16 pb-4">
+      <header className="relative text-center space-y-4 pt-16 pb-4">
+        <div className="absolute top-4 right-0 md:right-4">
+          <ThemeToggle />
+        </div>
         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl mb-3 shadow-lg shadow-purple-500/30">
           <Wallet className="w-8 h-8 text-white" />
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[var(--grad-from)] via-[var(--grad-via)] to-[var(--grad-to)] bg-clip-text text-transparent">
           Fair Share
         </h1>
         <p className="text-gray-400 text-base max-w-md mx-auto">
